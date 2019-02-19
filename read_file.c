@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:53:30 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/19 20:43:47 by thaley           ###   ########.fr       */
+/*   Updated: 2019/02/19 21:53:12 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,33 @@ t_fillit	*new_list(int count)
 	new_list->count = count;
 	return (new_list);
 }
-// size_t			find_end(char *buf, int i)
-// {
-// 	while (buf[i] != '\0')
-// 	{
-// 		if (i ==)
-// 		i++;
-// 	}
-// 	return (i);
-// }
+/*
+** разберись ты тут скоро вообще видеть ничего не будешь
+** отправь часть в мейн нафиг оно тут а вместо фд передавай 
+** количество тетримонов которые насчитало
+*/
 t_fillit		*read_file(int fd)
 {
 	t_fillit	*fillit;
 	t_fillit	*head;
 	char		buf[BUFF_SIZE + 1]; // возможно стоит выделять память динамически
 	// int			ret;
-	// int			i = 0;
+	int			i = 0;
 	int			count = 0;
-	// char		**term_map = (char**)malloc(1);
+	// int			area;
+	char		**map = (char**)malloc(1);
 
 	fillit = new_list(1);
 	head = fillit;
 	// t_point *p_min = makepoint(0, 0);
 	// t_point *p_max = makepoint(3, 3);
-	count = read_main(buf, fd);
-	printf("%d\n", count);
-	printf("%s\n", buf);
+	count = read_main(buf, fd); // need to write buf to some string
+	map = find_map(count * 4);
+	printf("+\n");
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
 	return (fillit);
 }

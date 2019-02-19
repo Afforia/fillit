@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:48:53 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/19 20:44:49 by thaley           ###   ########.fr       */
+/*   Updated: 2019/02/19 21:40:34 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct	s_point
 }
 				t_point;
 t_fillit		*read_file(int fd);
-// char			*min_square(char *tetrimo);
+char			**find_map(int area);
 t_point 		*makepoint(int x, int y);
 int 			read_main(char *buf, int fd);
 int check_not_last_buf(char *buf);
