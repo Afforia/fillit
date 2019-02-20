@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   read_and_record.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrankly <rfrankly@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 20:04:22 by rfrankly          #+#    #+#             */
-/*   Updated: 2019/02/20 12:55:15 by rfrankly         ###   ########.fr       */
+/*   Updated: 2019/02/20 21:02:18 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit_del.h"
+/*
+** эту я немного переделала чтобы она мне kolvo 
+** возырвращала в мейн и принимала баф и фдшник
+*/
+
+#include "fillit.h"
 
 int check_not_last_buf(char *buf)
 {
@@ -64,30 +69,28 @@ int check_last(char *buf)
     return (0);
 }
 
-int read_main(char *file, int *kolvo)
+char 	**read_main(char *buf, int *kolvo) 
 {
-    char buf[22]; //malloc mb
     int ret;
-    int fd;
+	int *kolvo;
+	int fd;
 
-    fd = open(file, O_RDONLY);
+	kolvo = 0;
+	fd = open(argv[1])
     while ((ret = read(fd, buf, 21)) > 0)
 	{
 		buf[ret] = '\0';
 		if (ret == 21)
         {
             if (check_not_last_buf(buf))
-                return (1);
+                return (0);
         }
         if (ret < 21)
         {
             if (check_last(buf))
-                return (1);
+                return (0);
         }
-        (*kolvo)++; //хз работает ли..работает только в скобочках
+        kolvo++;
 	}
-    if (((*kolvo) > 26) || ((*kolvo) == 0)) 
-        return (1);
-    close(fd);
-	return (0);
+	return ;
 }

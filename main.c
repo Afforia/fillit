@@ -6,11 +6,10 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:34:14 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/19 20:38:24 by thaley           ###   ########.fr       */
+/*   Updated: 2019/02/20 21:04:40 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "fillit.h"
 #include "libft/libft.h"
 
@@ -27,13 +26,13 @@ int		main(int argc, char **argv)
 	// int			ret;
 	t_fillit	*fillit; // сюды клади фигуры
 
+	fd = 1;
 	if (argc != 2)	// продумать лучше usage
 	{
 		ft_putstr("usage: fillt\n");
 		return (1);
 	}
-	fd = open(argv[1], O_RDONLY);
-	fillit = read_file(fd);
+	fillit = read_file(fd); // нужно что то нормальное туда передавать
 	// while (fillit)
 	// {
 	// 	printf("%d || %d\n", fillit->width, fillit->height);
