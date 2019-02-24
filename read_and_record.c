@@ -6,7 +6,7 @@
 /*   By: rfrankly <rfrankly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 20:04:22 by rfrankly          #+#    #+#             */
-/*   Updated: 2019/02/20 12:55:15 by rfrankly         ###   ########.fr       */
+/*   Updated: 2019/02/24 14:52:35 by rfrankly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int read_main(char *file, int *kolvo)
             if (check_last(buf))
                 return (1);
         }
-        (*kolvo)++; //хз работает ли..работает только в скобочках
+        (*kolvo)++;
 	}
     if (((*kolvo) > 26) || ((*kolvo) == 0)) 
         return (1);
