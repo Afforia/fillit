@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rfrankly <rfrankly@student.42.fr>          +#+  +:+       +#+         #
+#    By: thaley <thaley@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/10 15:34:58 by thaley            #+#    #+#              #
-#    Updated: 2019/02/24 17:34:37 by rfrankly         ###   ########.fr        #
+#    Updated: 2019/02/24 18:55:42 by thaley           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-INCLUDES = libft/libft.h fillit_del.h #gnl/get_next_line.h
+INCLUDES = libft/libft.h fillit.h #gnl/get_next_line.h
 
 CC = gcc
 

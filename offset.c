@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   offset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfrankly <rfrankly@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 17:06:13 by rfrankly          #+#    #+#             */
-/*   Updated: 2019/02/24 17:50:53 by rfrankly         ###   ########.fr       */
+/*   Updated: 2019/02/24 18:51:03 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit_del.h"
+#include "fillit.h"
 
 static int find_y(char **map)
 {
