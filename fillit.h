@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit_del.h                                       :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfrankly <rfrankly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:48:53 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/24 17:24:29 by rfrankly         ###   ########.fr       */
+/*   Updated: 2019/02/24 19:18:57 by rfrankly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int check_not_last_buf(char *buf);
 
 t_fillit **write_main(char *file, int kolvo);
 
-void offset(t_fillit *feel_it);
+void offset(char **map);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   offset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rfrankly <rfrankly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 17:06:13 by rfrankly          #+#    #+#             */
-/*   Updated: 2019/02/24 18:51:03 by thaley           ###   ########.fr       */
+/*   Updated: 2019/02/24 19:18:08 by rfrankly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int find_x(char **map)
     return (x);
 }
 
-void offset(t_fillit *feel_it)
+void offset(char **map)
 {
     int x;
     int y;
@@ -70,8 +70,8 @@ void offset(t_fillit *feel_it)
     int j;
 
     i = 0;
-    x = find_x(feel_it->map);
-    y = find_y(feel_it->map);
+    x = find_x(map);
+    y = find_y(map);
     if (x == 0 && y == 0)
         return ;
     while (i < 4)
@@ -79,10 +79,10 @@ void offset(t_fillit *feel_it)
         j = 0;
         while (j < 4)
         {
-            if (feel_it->map[i][j] == '#')
+            if (map[i][j] == '#')
             {
-                feel_it->map[i - y][j - x] = '#';
-                feel_it->map[i][j] = '.';
+                map[i - y][j - x] = '#';
+                map[i][j] = '.';
             }
             j++;
         }
