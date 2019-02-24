@@ -6,7 +6,7 @@
 #    By: thaley <thaley@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/10 15:34:58 by thaley            #+#    #+#              #
-#    Updated: 2019/02/19 20:46:59 by thaley           ###   ########.fr        #
+#    Updated: 2019/02/22 16:02:21 by thaley           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS += -g #dont forget remove -g
 
-SRC = main.c read_file.c min_square.c read_and_record.c
+SRC = main.c crt_del.c solution.c check.c read_and_record.c
 
 OBJ = $(SRC:.c=.o)
 

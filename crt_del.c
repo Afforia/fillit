@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 21:12:44 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/21 21:12:44 by thaley           ###   ########.fr       */
+/*   Updated: 2019/02/22 20:10:44 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ t_fillit	*new_list_fillit(int count)
 	new_list->content = '#';
 	new_list->width = 0;
 	new_list->height = 0;
+	new_list->dot = (int **)malloc(sizeof(int *));
 	new_list->next = NULL;
+	new_list->tetriski = ft_strnew(0);
 	new_list->count = count;
+	return (new_list);
 }
 char		**find_map(int area)
 {
