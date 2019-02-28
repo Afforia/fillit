@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 21:03:43 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/22 19:16:18 by thaley           ###   ########.fr       */
+/*   Updated: 2019/02/24 19:08:13 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,5 @@ int		main(int argc, char **argv)
 		return (1);
 	}
 	fillit = read_buf(argv[1]);
-	write_coordinates(fillit);
-	// if ((solution(count, buf))) //mb need if solution wasnt found
-	// {
-	// 	close (fd);
-	// 	return (1);
-	// }
-	// close(fd);
 	return (0);
 }

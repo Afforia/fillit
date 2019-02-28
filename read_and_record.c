@@ -6,15 +6,15 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 15:41:04 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/22 17:45:56 by thaley           ###   ########.fr       */
+/*   Updated: 2019/02/24 19:14:52 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 /*
-** what shoul function return
-** should close fd before every return or make it at main?
+** read buf and place tetrimo to lists
+** but work not correct
 */
 
 t_fillit		*read_buf(char *argv)

@@ -5,92 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 20:04:22 by rfrankly          #+#    #+#             */
-/*   Updated: 2019/02/20 21:02:18 by thaley           ###   ########.fr       */
+/*   Created: 2019/02/22 15:41:04 by thaley            #+#    #+#             */
+/*   Updated: 2019/02/24 19:14:52 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** эту я немного переделала чтобы она мне kolvo 
-** возырвращала в мейн и принимала баф и фдшник
-*/
-
 #include "fillit.h"
 
-int check_not_last_buf(char *buf)
+/*
+** read buf and place tetrimo to lists
+** but work not correct
+*/
+
+t_fillit		*read_buf(char *argv)
 {
-    int j;
-    int resh;
+	int			fd;
+	int			ret;
+	int 		count;
+	char		buf[BUFF_SIZE + 1];
+	t_fillit	*tetrimo;
+	t_fillit	*head;
 
-    j = 1;
-    resh = 0;
-    while (buf[j - 1] != '\0')
-    {
-        if ((j % 5 == 0) && (buf[j - 1] != '\n'))
-            return (1);
-        else if((j == 21) && (buf[j - 1] != '\n'))
-            return (1);
-        else if ((j % 5 != 0) && (j != 21))
-        {
-            if ((buf[j - 1] != '.') && (buf[j - 1] != '#'))
-                return (1);
-            if (buf[j - 1] == '#')
-                resh++;
-        }
-        j++;
-    }
-    if (resh != 4)
-        return (1);
-    return (0);
-}
-
-int check_last(char *buf)
-{
-    int j;
-    int resh;
-
-    j = 1;
-    resh = 0;
-    while (buf[j - 1] != '\0')
-    {
-        if ((j % 5 == 0) && (buf[j - 1] != '\n'))
-            return (1);
-        else if (j % 5 != 0)
-        {
-            if ((buf[j - 1] != '.') && (buf[j - 1] != '#'))
-                return (1);
-            if (buf[j - 1] == '#')
-                resh++;
-        }
-        j++;
-    }
-    if ((resh != 4) || (j != 20))
-        return (1);
-    return (0);
-}
-
-char 	**read_main(char *buf, int *kolvo) 
-{
-    int ret;
-	int *kolvo;
-	int fd;
-
-	kolvo = 0;
-	fd = open(argv[1])
-    while ((ret = read(fd, buf, 21)) > 0)
+	count = 0;
+	tetrimo = new_list_fillit(count);
+	head = tetrimo;
+	fd = open(argv, O_RDONLY);
+	while ((ret = read(fd, buf, 21)) > 0)
 	{
 		buf[ret] = '\0';
 		if (ret == 21)
-        {
-            if (check_not_last_buf(buf))
-                return (0);
-        }
-        if (ret < 21)
-        {
-            if (check_last(buf))
-                return (0);
-        }
-        kolvo++;
+		{
+			if (check_not_last_buf(buf)) //how should i exit from here
+				return (NULL);
+		}
+		if (ret < 21)
+		{
+			if (check_last(buf)) //how should i exit from here
+				return (NULL);
+		}
+		count++;
+		tetrimo->tetriski = ft_strjoin(tetrimo->tetriski, buf); //что то лишнее записывает
+		tetrimo->next = new_list_fillit(count); //возможно потому что он что то записывает когда баф уже закончился?
+		tetrimo = tetrimo->next;
 	}
-	return ;
+	free (tetrimo); //need Free all lists || i think so
+	tetrimo = head;
+	if (count > 26 || count <= 0) //count need 1 insted of 0
+		return (NULL);
+	close (fd);
+	return (tetrimo);
 }
