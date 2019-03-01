@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:48:53 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/01 15:02:42 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/01 19:46:18 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,60 @@ typedef struct	s_map
 	int		side;
 }				t_map;
 
-typedef struct	s_point
+typedef struct	s_sol_tet
 {
+	char	**tet;
 	int		x;
 	int		y;
 }
-				t_point;
+				t_sol_tet;
 
-int			count_tetrimo(char *argv);
-int			check_not_last(char *buf);
-int			check_last(char *buf);
-t_fillit	**write_from_buf(char *argv, int count);
-t_fillit	*new_fillit();
-void		write_figure(char *buf, char **tetrimo);
-void		offset(char **tetrimo);
-int			find_x(char **tetrimo);
-int			find_y(char **tetrimo);
-void		find_tet_area(t_fillit **fillit, int count);
-int			find_width(char **tetrimo);
-int			find_height(char **tetrimo);
-t_map		*new_map(int count);
-void		hollow_map(t_map *map);
-int			backtrack(t_fillit **fillit, t_map *map);
+/*
+** in = checker.c || from = read_write.c
+*/
+
+int			check_not_last(char *buf); // count_tetrimo
+int			check_last(char *buf); // count_tetrimo
+
+/*
+** in = read_write.c || from = new.c(main)
+*/
+
+int			count_tetrimo(char *argv); //main
+t_fillit	**write_from_buf(char *argv, int count); // main
+void		write_figure(char *buf, char **tetrimo); // write_from_buf
+void		offset(char **tetrimo); //write_from_buf
+
+/*
+** in = find_point.c || from = read_write.c new.c(main) 
+*/
+
+int			find_x(char **tetrimo); //offset
+int			find_y(char **tetrimo); //offset
+int			find_width(char **tetrimo); // find_tet_area
+int			find_height(char **tetrimo); //find_tet_area
+t_map		*find_tet_area(t_fillit **fillit, int count); //main
+
+/*
+** in = mal_free.c || from = read_write.c find_points.c tetrimo.c
+*/
+
+t_fillit	*new_fillit(); // write_from_buf
+t_map		*new_map(int count); // find_tet_area
+t_sol_tet	*new_struct(t_map *map); // 
+
+/*
+** in = map.c || from = find_points
+*/
+
+void		hollow_map(t_map *map); // find_tet_area
+
+/*   	
+**	in = tetrimo.c || from = main.c	
+*/
+
+int			solution(t_fillit **fillit, t_map *map); // main
+int			backtrack(t_fillit **fillit, t_map *map, int i, t_sol_tet **tet); // solution
+int			place_tetrimo(t_fillit **fillit, t_map *map, int i, t_sol_tet **tet); // backtrack
 
 #endif

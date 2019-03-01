@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 13:01:13 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/01 14:40:41 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/01 16:00:46 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,10 @@ int 	find_x(char **tetrimo)
     }
     return (j);
 }
-void	find_tet_area(t_fillit **fillit, int count)
+t_map	*find_tet_area(t_fillit **fillit, int count)
 {
 	int	j;
+	t_map	*map;
 
 	j = 0;	
 	while(j < count)
@@ -102,4 +103,7 @@ void	find_tet_area(t_fillit **fillit, int count)
 		fillit[j]->width = find_width(fillit[j]->left_up_corner);
 		j++;
 	}
+	map = new_map(count);
+	hollow_map(map);
+	return (map);
 }

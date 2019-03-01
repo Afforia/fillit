@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 16:09:38 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/01 15:02:55 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/01 18:42:38 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int		main(int argc, char **argv)
 	int			res;//
 	t_fillit	**fillit;
 	t_map		*map;
+	int			i;
 
+	i = 0;
 	res = 0; //
 	count = 0;
 	if (argc != 2)
@@ -33,9 +35,8 @@ int		main(int argc, char **argv)
 		return (1);
 	}
 	fillit = write_from_buf(argv[1], count);
-	find_tet_area(fillit, count);
-	map = new_map(count);
-	hollow_map(map);
-	res = backtrack(fillit, map);
+	map = find_tet_area(fillit, count);
+	res = solution(fillit, map);
+	// res = backtrack(fillit, map, int i);
 	return (0);
 }

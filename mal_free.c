@@ -6,11 +6,31 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 16:43:40 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/01 14:35:59 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/01 18:51:08 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit_new.h"
+
+t_sol_tet	*new_struct(t_map *map)
+{
+	t_sol_tet	*new;
+	int			i;
+
+	i = 0;
+	if (!(new = (t_sol_tet*)malloc(sizeof(t_sol_tet))))
+		return (NULL);
+	new->x = 0;
+	new->y = 0;
+	new->tet = (char **)malloc(sizeof(char *) * (map->side + 1));
+	while (i < map->side)
+	{
+		new->tet[i] = ft_strdup(map->map[i]);
+		i++;
+	}
+	new->tet[i] = NULL;
+	return (new);
+}
 
 t_map		*new_map(int count)
 {
@@ -31,6 +51,7 @@ t_map		*new_map(int count)
 		new->map[i] = ft_strnew(side);
 		i++;
 	}
+	new->map[i] = NULL;
 	return (new);
 }
 
