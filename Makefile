@@ -6,7 +6,7 @@
 #    By: thaley <thaley@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/10 15:34:58 by thaley            #+#    #+#              #
-#    Updated: 2019/02/28 18:17:09 by thaley           ###   ########.fr        #
+#    Updated: 2019/03/01 14:52:31 by thaley           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS += -g #dont forget remove -g
 
 #SRC = main.c crt_del.c solution.c check.c read_and_record.c
-SRC = new.c checker.c read_write.c mal_free.c tetrimo.c
+SRC = new.c checker.c read_write.c mal_free.c find_points.c map.c tetrimo.c
 
 OBJ = $(SRC:.c=.o)
 

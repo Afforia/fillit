@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 16:14:58 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/28 18:06:55 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/01 14:27:39 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_fillit	**write_from_buf(char *argv, int count)
 	while ((ret = read(fd, buf, 21)) > 0)
 	{
 		buf[ret] = '\0';
-		fillit[i] = new_struct();
+		fillit[i] = new_fillit();
 		write_figure(buf, fillit[i]->left_up_corner);
 		offset(fillit[i]->left_up_corner);
 		i++;

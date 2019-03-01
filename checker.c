@@ -6,61 +6,11 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 15:31:55 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/28 18:02:26 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/01 13:11:57 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit_new.h"
-
-int		find_y(char **tetrimo)
-{
-	int y;
-    int i;
-    int j;
-
-    i = 0;
-    y = 0;
-    while (i < 4)
-    {
-        j = 0;
-        while (j < 4)
-        {
-            if (tetrimo[i][j] == '#')
-            {
-                y = i;
-                return (y); 
-            }
-            j++;
-        }
-        i++;
-    }
-    return (y);
-}
-
-int 	find_x(char **map)
-{
-    int x;
-    int i;
-    int j;
-
-    j = 0;
-    x = 0;
-    while (j < 4)
-    {
-        i = 0;
-        while (i < 4)
-        {
-            if (map[i][j] == '#')
-            {
-                x = j;
-                return (x); 
-            }
-            i++;
-        }
-        j++;
-    }
-    return (x);
-}
 
 int check_not_last(char *buf)
 {

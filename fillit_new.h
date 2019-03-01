@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:48:53 by thaley            #+#    #+#             */
-/*   Updated: 2019/02/28 18:18:32 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/01 15:02:42 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 typedef struct	s_fillit
 {
 	char			**left_up_corner;
-	int				**coord;
+	// int				**coord;
 //	char			*tetriski;// - сосиски! ХА-Ха-ха...
 //	char			content; //это харанит хештег (то чем мы аля заполняем)
 	int				width; // ширин фигурки (известна так же под именем мистер Х)
@@ -38,6 +38,7 @@ typedef struct	s_map
 {
 	char	**map;
 	int		area;
+	int		side;
 }				t_map;
 
 typedef struct	s_point
@@ -51,11 +52,16 @@ int			count_tetrimo(char *argv);
 int			check_not_last(char *buf);
 int			check_last(char *buf);
 t_fillit	**write_from_buf(char *argv, int count);
-t_fillit	*new_struct();
+t_fillit	*new_fillit();
 void		write_figure(char *buf, char **tetrimo);
 void		offset(char **tetrimo);
 int			find_x(char **tetrimo);
 int			find_y(char **tetrimo);
-void		find_tet_area(t_fillit **fillit);
+void		find_tet_area(t_fillit **fillit, int count);
+int			find_width(char **tetrimo);
+int			find_height(char **tetrimo);
+t_map		*new_map(int count);
+void		hollow_map(t_map *map);
+int			backtrack(t_fillit **fillit, t_map *map);
 
 #endif
