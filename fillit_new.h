@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:48:53 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/01 19:46:18 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/03 17:36:34 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ typedef struct	s_map
 	char	**map;
 	int		area;
 	int		side;
+	
+	int		x;
+	int		y;
 }				t_map;
 
 typedef struct	s_sol_tet
@@ -94,7 +97,15 @@ void		hollow_map(t_map *map); // find_tet_area
 */
 
 int			solution(t_fillit **fillit, t_map *map); // main
-int			backtrack(t_fillit **fillit, t_map *map, int i, t_sol_tet **tet); // solution
-int			place_tetrimo(t_fillit **fillit, t_map *map, int i, t_sol_tet **tet); // backtrack
+int			backtrack(t_fillit **fillit, t_map *map, int i); // solution
+// int			place_tetrimo(t_fillit **fillit, t_map *map, int i, t_map **tet); // backtrack
+
+/*
+** in = place_tetrimo.c ||  tetrimo.c
+*/
+
+int		place_tetrimo(char	**tetrimo, char ***map, int x, int y, int width, int height);//backtrack
+int		check_it(char **tetrimo, char **map, int x, int y, int width, int height); //place_tetrimo
+char	**print_tet(char **tetrimo, char **temp, int x, int y, int width, int height); // place_tetrimo
 
 #endif

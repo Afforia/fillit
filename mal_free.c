@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 16:43:40 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/01 18:51:08 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/03 19:38:56 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_map		*new_map(int count)
 	side = 2;
 	new = (t_map *)malloc(sizeof(t_map));
 	new->area = count * 4;
+	new->x = 0;
+	new->y = 0;
 	while (side * side < new->area)
 		side++;
 	new->side = side;
@@ -65,11 +67,5 @@ t_fillit	*new_fillit()
 	new->left_up_corner = (char **)malloc(sizeof(char *) * 5);
 	new->height = 0;
 	new->height = 0;
-	// new->coord = (int **)malloc(sizeof(int *) * 5);
-	// while (i < 2) //why Adel i < 2 ???
-	// {
-	// 	new->coord[i] = (int *)malloc(sizeof(int) * 3);
-	// 	i++;
-	// }
 	return (new);
 }

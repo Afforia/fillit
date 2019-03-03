@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 18:16:27 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/01 20:07:58 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/03 18:48:59 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,24 @@
 int		solution(t_fillit **fillit, t_map *map)
 {
 	int		i;
-	t_sol_tet *tet;
-	tet = NULL;
+	// t_map *tet;
+	// tet = NULL;
 
 	i = 0;
-	tet = new_struct(map);
-	backtrack(fillit, map, i, &tet);
+	// tet = new_map(4);
+	// hollow_map(tet);
+	// backtrack(fillit, map, i);
+	while (i < 3)
+	{
+		place_tetrimo(fillit[i]->left_up_corner, &map->map, 0, 0, fillit[i]->width, fillit[i]->height);
+		i++;
+	}
+	i = 0 ;
+	while (map->map[i])
+	{
+		printf("%s\n", map->map[i]);
+		i++;
+	}
 	return (0);
 }
 
@@ -30,75 +42,26 @@ int		solution(t_fillit **fillit, t_map *map)
 ** продумать эти условия !!!
 */
 
-int		place_tetrimo(t_fillit **fillit, t_map *map, int i, t_sol_tet **tet)
-{
-	int		m; //first index
-	int		n; //second index
+// int		backtrack(t_fillit **fillit, t_map *map, int i)
+// {
+// 	int		x; //может х и у тоже должны передаваться?
+// 	int		y;
 
-	m = 0;
-	n = 0;
-	(*tet)->tet = map->map;
-	while ((*tet)->y < map->side && fillit[i]->left_up_corner[m])
-	{
-		(*tet)->x = 0;
-		n = 0;
-		while ((*tet)->x < map->side && fillit[i]->left_up_corner[m][n])
-		{
-			if ((*tet)->tet[(*tet)->y][(*tet)->x] == '.' && fillit[i]->left_up_corner[m][n] == '#')
-			{
-				(*tet)->tet[(*tet)->y][(*tet)->x] = '#';
-				n++;
-				(*tet)->x++;
-			}
-			else if ((*tet)->tet[(*tet)->y][(*tet)->x] == '.' && fillit[i]->left_up_corner[m][n] == '.')
-			{
-				(*tet)->x++;
-				n++;
-			}
-			else if ((*tet)->tet[(*tet)->y][(*tet)->x] == '#' && fillit[i]->left_up_corner[m][n] == '#')
-			{
-				(*tet)->x = 1;
-				m = 0;
-				n = 0;
-				continue;
-			}
-			else
-			{
-				n++;
-				(*tet)->x++;
-			}
-		}
-		(*tet)->y++;
-		m++;
-	}
-	map->map = (*tet)->tet;
-	free((*tet)->tet);
-	if (i == 3)
-		return (1);
-	return (0);
-}
-
-int		backtrack(t_fillit **fillit, t_map *map, int i, t_sol_tet **tet)
-{
-	int		x;
-	int		y;
-
-	x = 0;
-	y = 0;
-	while (i < 4 && (y < (map->area - fillit[i]->height + 1)))
-	{
-		while (i < 4 && (x < (map->area - fillit[i]->width + 1)))
-		{
-			if (place_tetrimo(fillit, map, i, tet))
-				return (1);
-			else
-			{
-				i++;
-				backtrack(fillit, map, i, tet);
-			}
-			x++;
-		}
-		y++;
-	}
-	return (0);
-}
+// 	x = 0;
+// 	y = 0;
+// 	while (y < (map->side - fillit[i]->height + 1))
+// 	{
+// 		while (x < (map->side - fillit[i]->width + 1))
+// 		{
+// 			if (place_tetrimo(fillit[i]->left_up_corner, map->map, x, y)) //vozmozhno karta c &
+// 				return (1);
+// 			else
+// 			{
+// 				backtrack(fillit, map, i);
+// 			}
+// 			x++;
+// 		}
+// 		y++;
+// 	}
+// 	return (0);
+// }
