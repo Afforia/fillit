@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_and_record.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rfrankly <rfrankly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 20:04:22 by rfrankly          #+#    #+#             */
-/*   Updated: 2019/02/24 18:50:41 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/03 18:33:49 by rfrankly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ int read_main(char *file, int *kolvo)
         }
         (*kolvo)++;
 	}
+    close(fd);
     if (((*kolvo) > 26) || ((*kolvo) == 0)) 
         return (1);
-    close(fd);
 	return (0);
 }
