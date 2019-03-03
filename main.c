@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_del.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rfrankly <rfrankly@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 19:30:25 by rfrankly          #+#    #+#             */
-/*   Updated: 2019/02/24 18:51:35 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/03 17:17:09 by rfrankly         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int main(int argc, char **argv)
 {
 	int kolvo;
+	t_fillit **feel_it;
 
 	kolvo = 0;
 	if (argc != 2)
@@ -27,6 +28,11 @@ int main(int argc, char **argv)
 		ft_putstr("error: invalide file\n");
 		exit(0);
 	}
-	write_main(argv[1], kolvo);
+	feel_it = write_main(argv[1], kolvo);
+	if (check_shape(feel_it) == 1)
+	{
+		ft_putstr("error: invalide file\n");
+		exit(0);
+	}
 	return (0);
 }
