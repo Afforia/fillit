@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 16:43:40 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/03 19:38:56 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/06 17:57:20 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,11 @@ t_map		*new_map(int count)
 t_fillit	*new_fillit()
 {
 	t_fillit	*new;
-	int			i;
 
-	i = 0;
 	new = (t_fillit *)malloc(sizeof(t_fillit));
 	new->left_up_corner = (char **)malloc(sizeof(char *) * 5);
 	new->height = 0;
 	new->height = 0;
+	new->content = 'A';
 	return (new);
 }

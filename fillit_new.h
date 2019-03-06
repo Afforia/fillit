@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 19:48:53 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/03 17:36:34 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/06 17:56:21 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct	s_fillit
 	char			**left_up_corner;
 	// int				**coord;
 //	char			*tetriski;// - сосиски! ХА-Ха-ха...
-//	char			content; //это харанит хештег (то чем мы аля заполняем)
+	char			content;
 	int				width; // ширин фигурки (известна так же под именем мистер Х)
 	int				height; // жена ширины - высота фигурки (именуемая У)
 //	int				count; //счетчик/№ тетриминошек || возможно вообще ненужная тут фигня
@@ -84,7 +84,7 @@ t_map		*find_tet_area(t_fillit **fillit, int count); //main
 
 t_fillit	*new_fillit(); // write_from_buf
 t_map		*new_map(int count); // find_tet_area
-t_sol_tet	*new_struct(t_map *map); // 
+// t_sol_tet	*new_struct(t_map *map); // 
 
 /*
 ** in = map.c || from = find_points
@@ -97,7 +97,7 @@ void		hollow_map(t_map *map); // find_tet_area
 */
 
 int			solution(t_fillit **fillit, t_map *map); // main
-int			backtrack(t_fillit **fillit, t_map *map, int i); // solution
+int		backtrack(t_fillit **fillit, t_map *map, int i); // solution
 // int			place_tetrimo(t_fillit **fillit, t_map *map, int i, t_map **tet); // backtrack
 
 /*
@@ -105,7 +105,8 @@ int			backtrack(t_fillit **fillit, t_map *map, int i); // solution
 */
 
 int		place_tetrimo(char	**tetrimo, char ***map, int x, int y, int width, int height);//backtrack
-int		check_it(char **tetrimo, char **map, int x, int y, int width, int height); //place_tetrimo
-char	**print_tet(char **tetrimo, char **temp, int x, int y, int width, int height); // place_tetrimo
+int		check_it(t_fillit *fillit, t_map *map);
+// int		check_it(char **tetrimo, char **map, int x, int y, int width, int height); //place_tetrimo
+char	**print_tet(t_fillit *fillit, t_map *map); // place_tetrimo
 
 #endif
