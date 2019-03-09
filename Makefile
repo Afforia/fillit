@@ -6,13 +6,13 @@
 #    By: thaley <thaley@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/06 18:57:03 by thaley            #+#    #+#              #
-#    Updated: 2019/03/06 18:57:06 by thaley           ###   ########.fr        #
+#    Updated: 2019/03/09 15:34:59 by thaley           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-INCLUDES = libft/libft.h fillit_new.h
+INCLUDES = libft/libft.h fillit.h
 
 CC = gcc
 
