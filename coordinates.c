@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/09 17:12:57 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/09 18:47:09 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/10 14:40:56 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,28 +52,42 @@ int		find_y(char **tetrimo)
 	return (i);
 }
 
-void	coord(char **tetrimo, int **crd)
+int		height(char **tetrimo)
 {
 	int		i;
 	int		j;
-	int		num;
-
-	num = 0;
-	i = 0;
-	while (i < 4)
+	
+	i = 3;
+	while (i >= 0)
 	{
-		j = 0;
-		while (j < 4)
+		j = 3;
+		while (j >= 0)
 		{
 			if (tetrimo[i][j] == '#')
-			{
-				crd[num][0] = i; //height
-				crd[num][1] = j; //width
-				num++; 
-			}
-			j++;
+				return (i + 1);
+			j--;
 		}
-		i++;
+		i--;
 	}
-	crd[num] = NULL;
+	return (i);
+}
+
+int		width(char **tetrimo)
+{
+	int	i;
+	int	j;
+
+	j = 3;
+	while (j >= 0)
+	{
+		i = 3;
+		while (i >= 0)
+		{
+			if (tetrimo[i][j] == '#')
+				return (j + 1);
+			i--;
+		}
+		j--;
+	}
+	return (j);
 }

@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 19:36:42 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/09 19:09:44 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/10 14:39:22 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ t_fillit	**write_buf(char *argv, int count)
 		fillit[i] = new_fillit(i);
 		write_tet(buf, fillit[i]->tetrimo);
 		offset(fillit[i]->tetrimo);
-		coord(fillit[i]->tetrimo, fillit[i]->crd);
+		fillit[i]->height = height(fillit[i]->tetrimo);
+		fillit[i]->width = width(fillit[i]->tetrimo);
 		i++;
 	}
 	fillit[i] = NULL;

@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/09 16:42:05 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/09 19:06:13 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/10 16:38:05 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,8 @@ t_fillit	*new_fillit(int i)
 	new = (t_fillit *)malloc(sizeof(t_fillit));
 	if (!(new->tetrimo = (char **)malloc(sizeof(char *) * 5)))
 		return (NULL);
-	new->crd = (int **)malloc(sizeof(int *) * 5);
-	while (j < 4)
-	{
-		new->crd[j] = (int *)malloc(sizeof(int) * 2);
-		j++;
-	}
+	new->height = 0;
+	new->width = 0;
 	new->content = 'A' + i;
 	return (new);
 }
@@ -49,4 +45,21 @@ t_map		*new_map(int side)
 	}
 	new->map[i] = NULL;
 	return (new);
+}
+
+int			free_map(t_map *map)
+{
+	int		side;
+
+	side = map->side;
+	while (map->side > 0)
+	{
+		free(map->map[map->side]);
+		map->side--;
+	}
+	free (map->map);
+	free(map);
+	map->map = NULL;
+	map = NULL;
+	return (side);
 }

@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:57:19 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/09 19:06:10 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/10 18:12:49 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef	struct	s_fillit
 {
 	char	**tetrimo;
 	char	content;
-	int		**crd;
+	int		height;
+	int		width;
 }				t_fillit;
 
 typedef struct	s_map
@@ -72,6 +73,7 @@ char		*dot_string(int side);
 
 t_fillit	*new_fillit(int i);
 t_map		*new_map(int side);
+int			free_map(t_map *map);
 
 /*
 ** coordinates.c
@@ -79,12 +81,17 @@ t_map		*new_map(int side);
 
 int			find_x(char **tetrimo);
 int			find_y(char **tetrimo);
-void		coord(char **tetrimo, int **crd);
+int			height(char **tetrimo);
+int			width(char **tetrimo);
 
 /*
 ** solution.c
 */
 
 void		sol_map(t_fillit **fillit, int count);
+int			place_tet(t_fillit **fillit, t_map **map, int count);
+int			check_tet(t_fillit **fillit, t_map *map, int count, int num);
+int			place_on_map(t_fillit *fillit, t_map *map);
+int			print_tet(t_fillit *fillit, t_map **map);
 
 #endif
