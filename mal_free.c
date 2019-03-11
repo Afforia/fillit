@@ -15,9 +15,7 @@
 t_fillit	*new_fillit(int i)
 {
 	t_fillit	*new;
-	int			j;
 
-	j = 0;
 	new = (t_fillit *)malloc(sizeof(t_fillit));
 	if (!(new->tetrimo = (char **)malloc(sizeof(char *) * 5)))
 		return (NULL);

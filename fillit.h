@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 18:57:19 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/10 18:12:49 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/11 20:07:58 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ int			width(char **tetrimo);
 */
 
 void		sol_map(t_fillit **fillit, int count);
-int			place_tet(t_fillit **fillit, t_map **map, int count);
-int			check_tet(t_fillit **fillit, t_map *map, int count, int num);
-int			place_on_map(t_fillit *fillit, t_map *map);
+//int			place_tet(t_fillit **fillit, t_map **map, int count);
+int			check_tet(t_fillit **fillit, t_map **map, int count);
+int			place_on_map(t_fillit *fillit, t_map **map);
 int			print_tet(t_fillit *fillit, t_map **map);
 
 #endif
