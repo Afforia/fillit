@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 19:41:36 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/11 20:20:12 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/13 11:41:55 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 ** если фигурки не помещаются увелисивает карту
 */
 
+/*
 void	sol_map(t_fillit **fillit, int count)
 {
 	t_map	*map;
@@ -109,3 +110,4 @@ int		print_tet(t_fillit *fillit, t_map **map)
 	}
 	return (0);
 }
+*/
