@@ -6,13 +6,13 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 10:43:58 by thaley            #+#    #+#             */
-/*   Updated: 2019/03/13 13:42:31 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/15 17:12:16 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	sol_map(t_fillit **fillit, int count) //here need to return map
+void	sol_map(t_fillit **fillit, int count)
 {
 	t_map	*map;
 	int		side;
@@ -20,31 +20,30 @@ void	sol_map(t_fillit **fillit, int count) //here need to return map
 
 	side = 2;
 	i = 0;
-	while (side * side < count * 4) // вычисляет минимальный размер карты
+	while (side * side < count * 4)
 		side++;
-	map = new_map(side); //создает новую карту
-	while (!(check_tet(fillit, map, count, i)))//пока возвращает 0 в итоге а не 1
+	map = new_map(side);
+	while (!(check_tet(fillit, map, count, i)))
 	{
 		i = 0;
-		side++; //увеличивает размер карты
+		side++;
 		free_map(map);
 		map = new_map(side);
 	}
 	int k = 0;
-	while (map->map[k])
+	while (k < 4)
 	{
-		printf("%s\n", map->map[k]); // это все просто выводит результат
+		printf("%s\n", map->map[k]);
 		k++;
 	}
-	printf("\n\n");
 }
 
 int		check_tet(t_fillit **fillit, t_map *map, int count, int i)
 {
 	int y;
-	int x; //без доп переменных для карты сегфолтится
+	int x;
 	
-	if (fillit[i] == NULL) //если длшел до последней вернуть все ок
+	if (fillit[i] == NULL)
 		return (1);
 	y = 0;
 	while (i < count && (y < map->side - fillit[i]->height + 1))
@@ -58,7 +57,7 @@ int		check_tet(t_fillit **fillit, t_map *map, int count, int i)
 				{
 					return (1);
 				}
-				else // удаляет тетримо после которой не смог поставить
+				else
 				{
 					i = i - 1;
 					map->y = y;
@@ -72,13 +71,6 @@ int		check_tet(t_fillit **fillit, t_map *map, int count, int i)
 	}
 	return (0);
 }
-
-/*
-** проверяет можно ли поместить на карту
-** если можно х и у приравнивает к интам в структуре карты
-** и печатает
-** если нет врозвращает 0
-*/
 
 int		place_on_map(t_fillit *fillit, t_map *map, int y, int x)
 {
@@ -103,12 +95,6 @@ int		place_on_map(t_fillit *fillit, t_map *map, int y, int x)
 	print_tet(fillit, map, fillit->content);
 	return (1);
 }
-
-/*
-** печатает фигурку на карту или убирает фигурку
-** для этого и передаю char content
-** в конце обнуляет х и у в структуре карты
-*/
 
 void	print_tet(t_fillit *fillit, t_map *map, char content)
 {

@@ -6,7 +6,7 @@
 /*   By: thaley <thaley@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 19:26:42 by rfrankly          #+#    #+#             */
-/*   Updated: 2019/03/11 16:03:20 by thaley           ###   ########.fr       */
+/*   Updated: 2019/03/15 15:17:33 by thaley           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int check_shape(t_fillit **feel_it)
             while (feel_it[i] != NULL)
             {
                 free_arr((void **)feel_it[i]->tetrimo);
-                // free_arr((void **)feel_it[i]->crd);
                 free(feel_it[i]);
                 i++;
             }
